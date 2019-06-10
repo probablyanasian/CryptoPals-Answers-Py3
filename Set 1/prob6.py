@@ -8,6 +8,9 @@ def b64tobin(b64input):
             pass
     return(output)
 
+def bitstring_to_bytes(inpbits):
+    return int(inpbits, 2).to_bytes(len(inpbits+7) // 8, byteorder='big')
+
 def rotating_xor(inputa, inputb):
     byte = bytearray(len(inputa))
     for charnum in range(len(inputa)):
@@ -28,5 +31,3 @@ fileout = open("prob6.out.txt", "w")
 fileincomb = b64tobin("".join(filein))
 filebin = ''
 
-inpa = bytearray("this is a test", "ascii")
-inpb = bytearray("wokka wokka!!!", "ascii")
